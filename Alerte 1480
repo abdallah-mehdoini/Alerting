@@ -8,3 +8,20 @@ EXEC msdb.dbo.sp_add_alert
     @include_event_description_in = 1,
     @notification_message = N'Un basculement AlwaysOn a été détecté.',
     @job_id = NULL;
+
+Alerte : Base en état RECOVERY PENDING / SUSPECT dans un AG
+EXEC msdb.dbo.sp_add_alert
+    @name = N'ALWAYS_ON_DB_RECOVERY_PENDING',
+    @message_id = 3456,
+    @severity = 0,
+    @enabled = 1,
+    @include_event_description_in = 1,
+    @notification_message = N'Une base AlwaysOn est en état RECOVERY PENDING.';
+
+EXEC msdb.dbo.sp_add_alert
+    @name = N'ALWAYS_ON_DB_SUSPECT',
+    @message_id = 824,
+    @severity = 24,
+    @enabled = 1,
+    @include_event_description_in = 1,
+    @notification_message = N'Une base dans un Availability Group est en état SUSPECT.';
